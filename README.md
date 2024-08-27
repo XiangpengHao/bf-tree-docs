@@ -34,6 +34,14 @@ No. The prototype I implemented is not deployed in production yet.
 
 However, the circular buffer pool design is very similar to FASTER's hybrid log, which is deployed in production at Microsoft. 
 
+## What are the drawbacks of Bf-Tree?
+
+- Bf-Tree only works for modern SSDs where parallel random 4KB writes have similar throughput to sequential writes. While not all SSDs have this property, it is not uncommon for modern SSDs.
+
+- Bf-Tree is heavily optimized for small records (e.g., 100 bytes, a common size when used as secondary indexes). Large records will have a similar performance to B-Trees or LSM-Trees.
+
+- Bf-Tree's buffer pool is more complex than B-Tree and LSM-Trees, as it needs to handle variable length mini-pages. But it is simpler than Bw-Tree in my opinion, which is implemented & deployed in production.
+
 ## I got questions!
 
 Feel free to reach out to me at xiangpeng.hao@wisc.edu or open an issue here.
