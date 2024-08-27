@@ -42,6 +42,15 @@ However, the circular buffer pool design is very similar to FASTER's hybrid log,
 
 - Bf-Tree's buffer pool is more complex than B-Tree and LSM-Trees, as it needs to handle variable length mini-pages. But it is simpler than Bw-Tree in my opinion, which is implemented & deployed in production.
 
+## Future directions?
+
+- Bf-Tree in-place writes to disk pages, which can cause burden to SSD garbage collection. If it is indeed a problem, we should consider using log-structured write to disk pages.
+
+- Bf-Tree's mini-page eviction/promotion policy is dead simple. More advanced policies can be used to ensure fairness, improve hit rate, and reduce copying. Our current paper focus on mini-page/buffer pool mechanisms, and exploring advanced policies is left as future work.
+
+- Better async. Bf-Tree relies on OS threads to interleave I/O operations, many people believe this is not ideal. Implement Bf-Tree with user-space async I/O (e.g., Tokio) might be a way to publish paper.
+
+
 ## I got questions!
 
 Feel free to reach out to me at xiangpeng.hao@wisc.edu or open an issue here.
