@@ -69,3 +69,11 @@ Feel free to reach out to me at xiangpeng.hao@wisc.edu or open an issue here.
 Some notable changes:
 
 - We have fixed a legend typo in Figure 1.
+
+
+## Community discussions
+
+- https://x.com/badrishc/status/1828290910431703365
+- https://x.com/MarkCallaghanDB/status/1827906983619649562
+
+Add yours here!
