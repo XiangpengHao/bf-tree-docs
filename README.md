@@ -1,4 +1,4 @@
-# Bf-Tree materials
+# Bf-Tree additional materials
 
 Bf-Tree is a modern B-Tree that is read-write-optimized by building a new variable-length buffer pool to manage such cache pages, called mini-pages. 
 
