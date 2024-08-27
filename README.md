@@ -1,5 +1,11 @@
 # Bf-Tree additional materials
 
+[Latest paper](paper.pdf) 
+
+[Slides(short)](slides-vldb.pptx) 
+
+[Poster](poster-vldb.pdf)
+
 Bf-Tree is a modern B-Tree that is read-write-optimized by building a new variable-length buffer pool to manage such cache pages, called mini-pages. 
 
 Bf-Tree uses this in-memory buffer pool to support efficient record-level caching, buffering recent updates, caching range gaps, as well as mirrors of disk pages when needed. 
