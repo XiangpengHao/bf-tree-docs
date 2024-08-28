@@ -1,20 +1,73 @@
 # Bf-Tree additional materials
 
-[Latest paper](paper.pdf) 
+Paper:  [Latest](paper.pdf), [VLDB 2024](vldb.org/pvldb/vol17/p3442-hao.pdf)
 
-[Slides(short)](slides-vldb.pptx) 
+Slides: [PowerPoint](slides-vldb.pptx), [pdf]() 
 
-[Poster](poster-vldb.pdf)
+Poster: [VLDB 2024](poster-vldb.pdf)
 
-Bf-Tree is a modern B-Tree that is read-write-optimized by building a new variable-length buffer pool to manage such cache pages, called mini-pages. 
+Code: [see below](#show-me-the-code).
 
-Bf-Tree uses this in-memory buffer pool to support efficient record-level caching, buffering recent updates, caching range gaps, as well as mirrors of disk pages when needed. 
+<hr>
 
-We implement a fully featured and modern Bf-Tree in Rust with 13k lines of code, and show that Bf-Tree is **2.5× faster than RocksDB (LSM-Tree) for scan operations, 6× faster than a B-Tree for write operations, and 2× faster than both B-Trees and LSM-Trees for point lookup**. 
+Bf-Tree is a modern read-write-optimized concurrent larger-than-memory range index.
 
-We believe these results firmly establish a new standard for database storage engines of the future.
+- **Modern**: designed for modern SSDs, implemented with modern programming languages (Rust).
 
-![](figures/perf-figure.png)
+- **Read-write-optimized**: 2.5× faster than RocksDB for scan operations, 6× faster than a B-Tree for write operations, and 2× faster than both B-Trees and LSM-Trees for point lookup -- for small records (e.g. ~100 bytes).
+
+- **Concurrent**: scale to high thread count.
+
+- **Larger-than-memory**: scale to large data sets.
+
+- **Range index**: records are sorted.
+
+The core of Bf-Tree is the mini-page abstraction and the buffer pool to support it.
+
+## Mini-pages
+
+#### 1. As a record-level cache
+More fine-grained than page-level cache, which is more efficient at identifying individual hot records.
+![Mini-pages serves as a record level cache](figures/bf-tree-cache-records.gif)
+
+#### 2. As a write buffer
+Mini pages absorb writes records and batch flush them to disk.
+![Mini-pages serves as a write buffer](figures/bf-tree-buffer-writes.gif)
+
+#### 3. Grow/shrink in size
+Mini-pages grow and shrink in size to be more precise in memory usage. 
+
+![Mini-pages grow and shrink in size](figures/bf-tree-grow-larger.gif)
+
+#### 4. Flush to disk
+Mini-pages are flushed to disk when they are too large or too cold.
+
+![Mini-pages are flushed to disk](figures/bf-tree-batch-write.gif)
+
+## Buffer pool for mini-pages
+
+The buffer pool is a circular buffer, allocated space is defined by head and tail address.
+
+#### 1. Allocate mini-pages
+![Allocate mini-pages](figures/buffer-pool-alloc.gif)
+
+#### 2. Evict mini-pages when full
+![Evict mini-pages when full](figures/buffer-pool-evict.gif)
+
+#### 3. Track hot mini-pages
+Naive circular buffer is a fifo queue, we make it a LRU-approximation using the second chance region.
+
+Mini-pages in the second-chance region are:
+- Copy-on-accessed to the tail address
+- Evicted to disk if not being accessed while in the region
+
+![Track hot mini-pages](figures/buffer-pool-lru.gif)
+
+#### 4. Grow mini-pages
+Mini-pages are copied to a larger mini-page when they need to grow.
+The old space is added to a free list for future allocations.
+
+![Grow mini-pages](figures/buffer-pool-grow.gif)
 
 
 ## Show me the code!
@@ -86,6 +139,7 @@ Some notable changes:
 
 - https://x.com/badrishc/status/1828290910431703365
 - https://x.com/MarkCallaghanDB/status/1827906983619649562
+- https://x.com/MarkCallaghanDB/status/1828466545347252694
 
 Add yours here!
 
