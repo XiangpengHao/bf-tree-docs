@@ -6,7 +6,7 @@ Slides: [PowerPoint](slides-vldb.pptx), [pdf]()
 
 Poster: [VLDB 2024](poster-vldb.pdf)
 
-Code: [see below](#show-me-the-code).
+Code: [see below](#show-me-the-code)
 
 <hr>
 
