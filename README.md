@@ -22,7 +22,7 @@ Bf-Tree is a modern read-write-optimized concurrent larger-than-memory range ind
 
 - **Range index**: records are sorted.
 
-The core of Bf-Tree is the mini-page abstraction and the buffer pool to support it.
+The core of Bf-Tree are the mini-page abstraction and the buffer pool to support it.
 
 ## Mini-pages
 
