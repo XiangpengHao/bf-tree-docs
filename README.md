@@ -120,14 +120,6 @@ Add your opinions here!
 Feel free to reach out to me at xiangpeng.hao@wisc.edu or open an issue here.
 
 
-## List of files
-
-- `paper.pdf`: The VLDB paper. We continuously fix the errors/typos in the paper, and we keep the paper.pdf updated.
-
-- `slides-vldb.pptx`: The slides used in VLDB 2024, Guangzhou, China. 
-
-- `poster-vldb.pdf`: The poster used in VLDB 2024.
-
 ## Errata
 
 Some notable changes:
