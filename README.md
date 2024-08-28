@@ -1,4 +1,4 @@
-# Bf-Tree additional materials
+# Bf-Tree
 
 Paper:  [Latest](paper.pdf), [VLDB 2024](vldb.org/pvldb/vol17/p3442-hao.pdf)
 
