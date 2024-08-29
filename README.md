@@ -72,20 +72,9 @@ The old space is added to a free list for future allocations.
 
 ## Show me the code!
 
-Unfortunately Bf-Tree code is not open-sourced yet due to IP issues.
-I've tried my best to get the permission ~~(but the hope is not high imo)~~.
+Bf-Tree is currently internal to Microsoft. I'll update here once we figured out the next steps.
 
-With that said, I've prepared the code in a way that it is ready to be open-sourced and will publish to crates.io once I get the permission.
 
-## Can I re-implement Bf-Tree?
-
-Yes! I believe you can implement a very similar Bf-Tree with the information in the paper.
-
-If you encounter any problems or have questions about implementation details, I'm more than happy to help you out and give you some hints!
-
-As an estimation of the effort,
-my implementation takes 13k lines of code in Rust, and I believe 
-it is unlikely to be less than 10k loc in any language.
 
 ## Is Bf-Tree deployed in production?
 
@@ -117,6 +106,7 @@ Add your opinions here!
 
 ## I got questions!
 
+If you encounter any problems or have questions about implementation details, I'm more than happy to help you out and give you some hints!
 Feel free to reach out to me at xiangpeng.hao@wisc.edu or open an issue here.
 
 
