@@ -10,7 +10,7 @@ Code: [see below](#show-me-the-code)
 
 <hr>
 
-Bf-Tree is a modern read-write-optimized concurrent larger-than-memory range index.
+**Bf-Tree is a modern read-write-optimized concurrent larger-than-memory range index.**
 
 - **Modern**: designed for modern SSDs, implemented with modern programming languages (Rust).
 
@@ -23,6 +23,8 @@ Bf-Tree is a modern read-write-optimized concurrent larger-than-memory range ind
 - **Range index**: records are sorted.
 
 The core of Bf-Tree are the mini-page abstraction and the buffer pool to support it.
+
+Thank you for your time on Bf-Tree, I'm all ears for any feedback!
 
 ## Mini-pages
 
