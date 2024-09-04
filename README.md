@@ -8,6 +8,20 @@ Poster: [VLDB 2024](poster-vldb.pdf)
 
 Code: [see below](#show-me-the-code)
 
+
+```bibtex
+@article{bf-tree,
+  title={Bf-Tree: A Modern Read-Write-Optimized Concurrent Larger-Than-Memory Range Index},
+  author={Hao, Xiangpeng and Chandramouli, Badrish},
+  journal={Proceedings of the VLDB Endowment},
+  volume={17},
+  number={11},
+  pages={3442--3455},
+  year={2024},
+  publisher={VLDB Endowment}
+}
+```
+
 <hr>
 
 **Bf-Tree is a modern read-write-optimized concurrent larger-than-memory range index.**
