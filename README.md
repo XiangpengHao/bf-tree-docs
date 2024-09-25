@@ -27,7 +27,7 @@ Code: [see below](#show-me-the-code)
 
 The core of Bf-Tree are the mini-page abstraction and the buffer pool to support it.
 
-Thank you for your time on Bf-Tree, I'm all ears for any feedback!
+Thank you for your time on Bf-Tree, I'm all ears for feedbacks!
 
 ## Mini-pages
 
